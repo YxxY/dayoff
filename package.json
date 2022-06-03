@@ -1,0 +1,66 @@
+{
+  "name": "day_off_api",
+  "version": "1.0.0",
+  "description": "restful api to demonstate whether a day is chinese work day or not",
+  "private": true,
+  "egg": {
+    "typescript": true,
+    "declarations": true
+  },
+  "scripts": {
+    "start": "egg-scripts start --title=egg-server-isDayOff --env=prod --port=7001",
+    "stop": "egg-scripts stop --title=egg-server-isDayOff",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "build": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "eslint . --ext .ts",
+    "clean": "ets clean",
+    "init": "npx ts-node data/init.ts"
+  },
+  "dependencies": {
+    "date-fns": "^2.28.0",
+    "egg": "^2.6.1",
+    "egg-joi": "^2.0.1",
+    "egg-scripts": "^2.6.0",
+    "egg-sequelize": "^6.0.0",
+    "node-cache": "^5.1.2",
+    "sqlite3": "^5.0.8"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "@types/supertest": "^2.0.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.19.0",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.16.0",
+    "eslint": "7.32.0",
+    "eslint-config-egg": "^8.0.0",
+    "mocha": "^5.2.0",
+    "sequelize-cli": "^6.4.1",
+    "tslib": "^1.9.0",
+    "typescript": "4.7.2",
+    "yaml": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "author": "yxxy",
+  "license": "MIT"
+}
