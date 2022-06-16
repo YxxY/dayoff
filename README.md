@@ -1,4 +1,8 @@
-# dayOff API 
+![](./data/dayoff.png)  
+![workday](https://img.shields.io/badge/workday-0-green) ![dayoff](https://img.shields.io/badge/dayoff-1-brightgreen)  
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/YxxY/dayoff/blob/main/LICENSE)  
+
+
 restful api to demonstrate whether a date is chinese holiday
 
 ## api
@@ -13,10 +17,9 @@ restful api to demonstrate whether a date is chinese holiday
 - `1`: day off
 - `0`: work day
 
-## config
-`yaml` config file under `data` folder: `${YEAR}.yaml` or `{YEAR}.yml`
-current year is `2022.yaml`  
-next year will be `2023.yaml`
+## rules
+config rules with `yaml` file under `data` folder with format `${YEAR}.yaml` or `{YEAR}.yml`  
+current year is `2022.yaml`, next year will be `2023.yaml`
 
 ## install
 - clone this repo
