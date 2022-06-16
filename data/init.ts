@@ -36,10 +36,10 @@ async function main() {
   const currFileName = basename(__filename);
   const files = readdirSync(__dirname)
     .filter(file => {
-      return (file.indexOf('.') !== 0) && (file !== currFileName) && (extname(file) === '.yaml');
+      return (file.indexOf('.') !== 0) && (file !== currFileName) && (extname(file) === '.yaml' || extname(file) === '.yml');
     });
   for (const file of files) {
-    const year = basename(file, '.yaml');
+    const year = basename(file, extname(file));
     await handle(join(__dirname, file), year);
   }
 }

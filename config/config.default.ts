@@ -33,6 +33,13 @@ export default (appInfo: EggAppInfo) => {
     },
   };
 
+  config.customLoader = {
+    utils: {
+      directory: 'app/utils',
+      inject: 'app',
+    },
+  };
+
   config.onerror = {
     all(err, ctx) {
       // 在此处定义针对所有响应类型的错误处理方法

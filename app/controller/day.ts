@@ -1,8 +1,5 @@
 import { Controller } from 'egg';
-import { parseISO } from 'date-fns';
-import { formatDate } from '../utils';
-import cache from '../utils/cache';
-
+import { parseISO, addDays, subDays } from 'date-fns';
 export default class HomeController extends Controller {
   public async index() {
     const { ctx, app } = this;
@@ -12,16 +9,25 @@ export default class HomeController extends Controller {
       return ctx.customRes.error(400);
     }
     let date = params.date;
-    if (date.toLowerCase() === 'today') {
-      date = new Date();
-    } else {
-      date = parseISO(params.date);
-      if (date.toString() === 'Invalid Date') {
-        return ctx.customRes.error(400);
-      }
+    switch (date.toLowerCase()) {
+      case 'today':
+        date = new Date();
+        break;
+      case 'yesterday':
+        date = subDays(new Date(), 1);
+        break;
+      case 'tomorrow':
+        date = addDays(new Date(), 1);
+        break;
+      default:
+        date = parseISO(params.date);
+        if (date.toString() === 'Invalid Date') {
+          return ctx.customRes.error(400);
+        }
+        break;
     }
-    const key = formatDate(date);
-    const result = await cache.getOrDefault(key, async () => {
+    const key = app.utils.index.formatDate(date);
+    const result = await app.utils.cache.getOrDefault(key, async () => {
       const isDayOff = await this.ctx.service.day.isDayOff(key);
       if (typeof isDayOff === 'number') {
         return isDayOff;

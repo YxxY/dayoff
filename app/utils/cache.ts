@@ -15,10 +15,10 @@ class LocalCache extends NodeCache {
   public async getOrDefault<T>(config: string | CacheItemConfig, getter: DefaultCallback<T>, ...callbackArgs: Array<any>): Promise<T> {
     const key = typeof config === 'string' ? config : config.key;
     let value = this.get(key);
-    if (!value) {
+    if (value === undefined) {
       value = await getter?.(...callbackArgs);
 
-      if (key && value) {
+      if (key && value !== undefined) {
         this.set(key, value, typeof config === 'string' ? TTL : config.ttl);
       }
     }

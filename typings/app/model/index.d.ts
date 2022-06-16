@@ -3,11 +3,9 @@
 
 import 'egg';
 import ExportDay from '../../../app/model/day';
-import ExportIndex = require('../../../app/model/index');
 
 declare module 'egg' {
   interface IModel {
     Day: ReturnType<typeof ExportDay>;
-    Index: ReturnType<typeof ExportIndex>;
   }
 }
