@@ -1,4 +1,8 @@
-![](./data/dayoff.png)  
+<p align="center">
+<img alt="logo" src="logo.png"/>
+</p>
+<br/>
+
 ![workday](https://img.shields.io/badge/workday-0-green) ![dayoff](https://img.shields.io/badge/dayoff-1-brightgreen)  
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/YxxY/dayoff/blob/main/LICENSE)  
 
