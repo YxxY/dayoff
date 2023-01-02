@@ -36,7 +36,7 @@ async function main() {
   const currFileName = basename(__filename);
   const files = readdirSync(__dirname)
     .filter(file => {
-      return (file.indexOf('.') !== 0) && (file !== currFileName) && (extname(file) === '.yaml' || extname(file) === '.yml');
+      return (file.indexOf('.') !== 0) && (file !== currFileName) && (['.yaml', '.yml'].includes(extname(file)));
     });
   for (const file of files) {
     const year = basename(file, extname(file));
